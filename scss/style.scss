@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+a{display: inline-block; text-decoration: none; color: inherit;}
+.inner{width: 1200px; margin: 0 auto;}
+.clear_fix::after{content: ''; clear: both; display: block;}
+
+// radio-button 동그라미 안 보이게
+.radio_btn{display: none;}
+
+header{       
+    // * FONT 설정 * //
+    font-family: 'Pretendard-Regular';
+
+    #header_fix{position: fixed; width: 1200px;}
+
+    // LOGO
+    #logo{display: inline-block; margin: 32px 0;}
+    #logo img{width: 244px;}
+
+    // GNB
+    #gnb{display: inline-block; margin-left: 56px; vertical-align: -18px;}
+    #gnb li{float: left; margin-right: 24px;}
+    #gnb li:last-child{margin-right: 0;}
+    #gnb li a{font-size: 20px; font-weight: 600; color: #3B3B3B;}
+
+    // LANG → 언어변경
+    // radio-button 클릭 시 색깔 변경
+    #lang{float: right; margin: 44px 0 0 12px;}
+    label{color: #BCBCBC; cursor: pointer;}
+    #lang fieldset :nth-child(2){margin-right: 8px;}
+    input:checked{border: none;}
+    input:checked + label{color: #3B3B3B;}
+}
+
+main{
+    // Background 배치
+    #bg{
+        position: relative;
+        background: url(../images/main_image/paper_texture.jpg) no-repeat center;
+        width: 100%; height: 100vh; background-size: cover; z-index: -999;
+    }
+
+    #rainbow{position: absolute; top: 40px; left: 200px;}
+    #rainbow img{width: 1464px; z-index: 1;}
+
+    #cloud{position: absolute; top: 224px; left: 1260px;}
+    #cloud img{width: 320px; z-index: 2;}
+
+    #characters{position: absolute; top: 84px; left: 760px; animation: fadein .8s ease-in-out;}
+    #characters img{width: 1000px; z-index: 3;}
+    // 페이드인 하면서 이미지가 나타나는 애니메이션
+    @keyframes fadein {
+        from{
+            opacity: 0.1;
+        } 
+        to{
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes fadein { // 크롬&사파리
+        from{
+            opacity: 0.1;
+        } 
+        to{
+            opacity: 1;
+        }
+    }
+
+    #top_text_position0{ position: relative; top: -330px; left: 380px;}
+    #top_text_position0 span{color: #266FDE;}
+    #top_text_position1{ position: relative; top: -220px; left: 310px;}
+    .text_info{z-index: 4; display: inline-block;}
+    .text_info p{font-family: 'TTLaundryGothicB'; font-size: 72px; background-color: #fff; padding: 8px 12px;}
+    
+    // Font가 통통튀는 효과
+    .bounce_text > p span{
+        display: inline-block;
+        position: relative;
+        top: 10px;
+        color: #DC000C;
+
+        animation: bounce .3s ease infinite alternate;
+        text-shadow: 0 1px 0 #e6e6e6,
+                     0 2px 0 #e6e6e6,
+                     0 3px 0 #e6e6e6,
+                     0 4px 0 #e6e6e6,
+                     0 5px 0 #e6e6e6,
+                     0 6px 0 transparent,
+                     0 7px 0 transparent,
+                     0 8px 0 transparent,
+                    0 9px 0 transparent,
+                    0 10px 10px rgba(0, 0, 0, .4);
+    }
+    .bounce_text p span:nth-child(2){animation-delay: .1s;}
+    .bounce_text p span:nth-child(3){animation-delay: .2s;}
+    .bounce_text p span:nth-child(4){animation-delay: .3s;}
+    .bounce_text p span:nth-child(5){animation-delay: .4s;}
+
+    @keyframes bounce {
+        100% {
+          top: -10px;
+          text-shadow: 0 1px 0 #CCC,
+                       0 2px 0 #CCC,
+                       0 3px 0 #CCC,
+                       0 4px 0 #CCC,
+                       0 5px 0 #CCC,
+                       0 6px 0 #CCC,
+                       0 7px 0 #CCC,
+                       0 8px 0 #CCC,
+                       0 9px 0 #CCC,
+                       0 50px 25px rgba(0, 0, 0, .2);
+        }
+
+    }
+}
