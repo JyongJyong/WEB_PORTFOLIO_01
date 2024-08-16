@@ -11,7 +11,9 @@ header{
     // * FONT 설정 * //
     font-family: 'Pretendard-Regular';
 
-    #header_fix{position: fixed; width: 1200px;}
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 999;
+
+    .header_fix{width: 1200px;}
 
     top: 0; right: 0; left: 0;
 
@@ -32,139 +34,206 @@ header{
     #lang fieldset :nth-child(2){margin-right: 8px;}
     input:checked{border: none;}
     input:checked + label{color: #3B3B3B;}
+
+    &.scrolled{
+        background: #fff; color: #3B3B3B;
+    }
 }
+
+// Swiper 풀페이지 설정
+#wrap{width: 100%; height: 100vh; overflow: hidden; position: relative;}
+.sec{width: 100%; height: 100vh;}
 
 main{
     // * FONT 설정 * //
     font-family: 'Pretendard-Regular';
 
-    #main_top{width: 100%; height: 100vh; overflow: hidden;}
-    // Background 배치
-    #bg{
-        position: relative;
-        background: url(../images/main_image/paper_texture.jpg) no-repeat center;
-        width: 100%; height: 100vh; background-size: cover; z-index: -999;
-    }
-
-    #rainbow{position: absolute; top: 70px; left: 200px;}
-    #rainbow img{width: 1464px; z-index: 1;}
-
-    #cloud{position: absolute; top: 118px; left: 1280px;}
-    #cloud img{width: 320px; z-index: 2;}
-
-    #characters{position: absolute; top: 132px; left: 620px; animation: fadein .8s ease-in-out;}
-    #characters img{width: 1000px; z-index: 3;}
-    // 페이드인 하면서 이미지가 나타나는 애니메이션
-    @keyframes fadein {
-        from{
-            opacity: 0.1;
-        } 
-        to{
-            opacity: 1;
+    #main_top{width: 100%; height: 100vh; overflow: hidden;
+        // Background 배치
+        #bg1{
+            position: relative;
+            background: url(../images/main_image/paper_texture.jpg) no-repeat center;
+            width: 100%; height: 100vh; background-size: cover; z-index: -999;
         }
-    }
-    @-webkit-keyframes fadein { // 크롬&사파리
-        from{
-            opacity: 0.1;
-        } 
-        to{
-            opacity: 1;
-        }
-    }
 
-    #top_text_position0{ position: relative; top: -292px; left: 380px;}
-    #top_text_position0 span{color: #266FDE;}
-    #top_text_position1{ position: relative; top: -206px; left: 380px;}
-    .text_info{z-index: 4; display: inline-block;}
-    .text_info p{font-family: 'TTLaundryGothicB'; font-size: 64px; background-color: #fff; padding: 8px 12px;}
-    
-    // Font가 통통튀는 효과
-    .bounce_text > p span{
-        display: inline-block;
-        position: relative;
-        top: 10px;
-        color: #DC000C;
+        #rainbow{position: absolute; top: 70px; left: 200px;}
+        #rainbow img{width: 1464px; z-index: 1;}
 
-        animation: bounce .55s ease infinite alternate;
-        text-shadow: 0 1px 0 #e6e6e6,
-                     0 2px 0 #e6e6e6,
-                     0 3px 0 #e6e6e6,
-                     0 4px 0 #e6e6e6,
-                     0 5px 0 #e6e6e6,
-                     0 6px 0 transparent,
-                     0 7px 0 transparent,
-                     0 8px 0 transparent,
-                    0 9px 0 transparent,
-                    0 10px 10px rgba(0, 0, 0, .4);
-    }
-    .bounce_text p span:nth-child(2){animation-delay: .1s;}
-    .bounce_text p span:nth-child(3){animation-delay: .2s;}
-    .bounce_text p span:nth-child(4){animation-delay: .3s;}
-    .bounce_text p span:nth-child(5){animation-delay: .4s;}
+        #cloud{position: absolute; top: 118px; left: 1280px;}
+        #cloud img{width: 320px; z-index: 2;}
 
-    @keyframes bounce {
-        100% {
-          top: -10px;
-          text-shadow: 0 1px 0 #CCC,
-                       0 2px 0 #CCC,
-                       0 3px 0 #CCC,
-                       0 4px 0 #CCC,
-                       0 5px 0 #CCC,
-                       0 6px 0 #CCC,
-                       0 7px 0 #CCC,
-                       0 8px 0 #CCC,
-                       0 9px 0 #CCC,
-                       0 50px 25px rgba(0, 0, 0, .2);
-        }
-    }
-
-    // main 위에 위치한 버튼 배치
-    #main_button{position: relative;}
-    button{
-        --font-size: 18px;
-        --move-hover: -6px;
-        --duration: .44s;
-        --font-shadow: var(--font-size);
-
-        font-family: 'Pretendard-Regular';
-
-        font-size: var(--font-size); color: #3B3B3B; font-weight: bold; line-height: 19px; border-radius: 32px; padding: 18px 24px; letter-spacing: .5px;
-        border: 3px solid #3B3B3B;background-color: transparent; display: flex; align-items: center; appearance: none;  transform: translateY(var(--y)) translateZ(0);
-        box-shadow: var(--shadow); display: flex; overflow: hidden;
-
-        div{display: flex; overflow: hidden; text-shadow: 0 var(--font-shadow) 0 #fff;}
-        span {
-            display:block;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            transition: transform var(--duration) ease;
-            transform: translateY(var(--m)) translateZ(0);
-            $i: 1;
-            @while $i < 10 {
-                &:nth-child(#{$i}) {
-                    transition-delay: $i / 20 + s;
-                }
-                $i: $i + 1;
+        #characters{position: absolute; top: 132px; left: 620px; animation: fadein .8s ease-in-out;}
+        #characters img{width: 1000px; z-index: 3;}
+        // 페이드인 하면서 이미지가 나타나는 애니메이션
+        @keyframes fadein {
+            from{
+                opacity: 0.1;
+            } 
+            to{
+                opacity: 1;
             }
-        }   
-            
-        &:hover {
-            cursor: pointer; border: 3px solid #DC000C; background-color: #DC000C; color: #fff;
-            --y: var(--move-hover);
-            --shadow: var(--shadow-hover);
+        }
+        @-webkit-keyframes fadein { // 크롬&사파리
+            from{
+                opacity: 0.1;
+            } 
+            to{
+                opacity: 1;
+            }
+        }
+
+        #top_text_position0{ position: relative; top: -292px; left: 380px;}
+        #top_text_position0 span{color: #266FDE;}
+        #top_text_position1{ position: relative; top: -206px; left: 380px;}
+        .text_info{z-index: 4; display: inline-block;}
+        .text_info p{font-family: 'TTLaundryGothicB'; font-size: 64px; background-color: #fff; padding: 8px 12px;}
+        
+        // Font가 통통튀는 효과
+        .bounce_text > p span{
+            display: inline-block;
+            position: relative;
+            top: 10px;
+            color: #DC000C;
+
+            animation: bounce .55s ease infinite alternate;
+            text-shadow: 0 1px 0 #e6e6e6,
+                        0 2px 0 #e6e6e6,
+                        0 3px 0 #e6e6e6,
+                        0 4px 0 #e6e6e6,
+                        0 5px 0 #e6e6e6,
+                        0 6px 0 transparent,
+                        0 7px 0 transparent,
+                        0 8px 0 transparent,
+                        0 9px 0 transparent,
+                        0 10px 10px rgba(0, 0, 0, .4);
+        }
+        .bounce_text p span:nth-child(2){animation-delay: .1s;}
+        .bounce_text p span:nth-child(3){animation-delay: .2s;}
+        .bounce_text p span:nth-child(4){animation-delay: .3s;}
+        .bounce_text p span:nth-child(5){animation-delay: .4s;}
+
+        @keyframes bounce {
+            100% {
+            top: -10px;
+            text-shadow: 0 1px 0 #CCC,
+                        0 2px 0 #CCC,
+                        0 3px 0 #CCC,
+                        0 4px 0 #CCC,
+                        0 5px 0 #CCC,
+                        0 6px 0 #CCC,
+                        0 7px 0 #CCC,
+                        0 8px 0 #CCC,
+                        0 9px 0 #CCC,
+                        0 50px 25px rgba(0, 0, 0, .2);
+            }
+        }
+
+        // main 위에 위치한 버튼 배치
+        #main_button{position: relative;}
+        button{
+            --font-size: 18px;
+            --move-hover: -6px;
+            --duration: .44s;
+            --font-shadow: var(--font-size);
+
+            font-family: 'Pretendard-Regular';
+
+            font-size: var(--font-size); color: #3B3B3B; font-weight: bold; line-height: 19px; border-radius: 32px; padding: 18px 24px; letter-spacing: .5px;
+            border: 3px solid #3B3B3B;background-color: transparent; display: flex; align-items: center; appearance: none;  transform: translateY(var(--y)) translateZ(0);
+            box-shadow: var(--shadow); display: flex; overflow: hidden;
+
+            div{display: flex; overflow: hidden; text-shadow: 0 var(--font-shadow) 0 #fff;}
             span {
-                --m: calc(var(--font-size) * -1);
-            }
-        }
-        &.reverse {
+                display:block;
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                transition: transform var(--duration) ease;
+                transform: translateY(var(--m)) translateZ(0);
+                $i: 1;
+                @while $i < 10 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: $i / 20 + s;
+                    }
+                    $i: $i + 1;
+                }
+            }   
+                
             &:hover {
+                cursor: pointer; border: 3px solid #DC000C; background-color: #DC000C; color: #fff;
+                --y: var(--move-hover);
+                --shadow: var(--shadow-hover);
                 span {
-                    --m: calc(var(--font-size));
+                    --m: calc(var(--font-size) * -1);
+                }
+            }
+            &.reverse {
+                &:hover {
+                    span {
+                        --m: calc(var(--font-size));
+                    }
                 }
             }
         }
-    }
 
-    #news{display: block; position: absolute; top: -262px; left: 378px;}
-    #shop{display: block; position: absolute; top: -262px; left: 582px;}
+        #news{display: block; position: absolute; top: -262px; left: 378px;}
+        #shop{display: block; position: absolute; top: -262px; left: 582px;}
+
+    } // end: #main_top
+    
+    #main_middle{
+        #bg2{
+            background:#2E2E2E url(../images/main_image/sky.png) no-repeat center; background-attachment: fixed;
+            width: 100%; height: 100vh; background-size: cover; z-index: -999;
+            position: relative;
+
+            #bg_paper{
+                position: absolute; top: 200px; left: 30%;
+                img{width: 820px;} z-index: 1;
+            }
+
+            #character_yoshi{
+                position: absolute; top: 200px; left: 18%;
+                img{width: 284px;} z-index: 2;
+                animation: float_ani1 1s infinite alternate;
+            }
+
+            #character_spunge{
+                position: absolute; top: 426px; left: 70%;
+                img{width: 284px;} z-index: 2;
+                animation: float_ani2 1s infinite alternate;
+            }
+
+            // 캐릭터 둥둥 떠다니는 애니메이션
+            @keyframes float_ani1{
+                0%{transform: translate(0, 0);}
+                100%{transform: translate(0, 34px);}
+            }
+            @keyframes float_ani2{
+                0%{transform: translate(0, 0);}
+                100%{transform: translate(0, -34px);}
+            }
+
+            #main_middle_text{
+                position: relative; top: 408px; left: 36%; color: #3B3B3B; font-size: 48px; z-index: 3;
+                font-family: 'PTAnboR';; font-weight: 200;
+            }
+
+            
+            #business_text{
+                position: relative; top: 436px; left: 58%; color: #9E9E9E; font-size: 36px; z-index: 4;
+                font-family: 'LeeSeoyun'; font-weight: 400; 
+
+                span{color: #fff;}
+            }
+
+            #line{
+                display: inline-block; position: absolute; top: 576px; left: 55%;  z-index: 3; 
+                img{ width: 260px; transform: rotate(-25deg);}
+            }
+        }
+    } // end: #main_middle
 }
+
+.pager{position: absolute; top: 50%; left: 30px; transform: translateY(-50%);}
+.pager span{display: block; width: 10px; height: 10px; border-radius: 50%; background: #000; opacity: .3; margin: 8px 0; cursor: pointer;}
+.pager span.active{opacity: 1;}

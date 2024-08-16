@@ -18,9 +18,9 @@
 <body>
     <header>
         <div class="inner">
-            <div id="header_fix">
+            <div>
                 <div id="logo">
-                    <h1><a href="#"><img src="../WEB_PORTFOLIO_01/images/logo/daewonmedia_logo.png" alt="대원미디어"/></a></h1>
+                    <h1><a href="#"><img src="images/logo/daewonmedia_logo.png" alt="대원미디어"/></a></h1>
                 </div> <!--end: #logo-->
     
                 <nav id="gnb">
@@ -45,25 +45,54 @@
         </div>
     </header>
 
-    <main>
-        <section id="main_top">
-            <div id="bg">
-                <div id="rainbow"><img src="../WEB_PORTFOLIO_01/images/main_image/rainbow.png"/></div>
-                <div id="cloud"><img src="../WEB_PORTFOLIO_01/images/main_image/cloud.png"/></div>
-                <div id="characters"><img src="../WEB_PORTFOLIO_01/images/main_image/all_characters.png"/></div>
-            </div><!--end: #background-->
-    
-            <section id="top_text_position0" class="text_info"><p><span>상상</span>하는 모든것을 <span>현실</span>로 만드는</p></section>
-            <section id="top_text_position1" class="text_info bounce_text"><p><span>대</span><span>원</span><span>미</span><span>디</span><span>어</span></p></section>
-    
-            <section id="main_button">
-                <div id="news"><a href="#"><button>대원뉴스 바로가기</button></a></div>
-                <div id="shop"><a href="#"><button>대원샵 바로가기</button></a></div>
+    <div id="wrap">
+        <main class="container">
+            <section id="main_top" class="sec">
+                <div id="bg1">
+                    <div id="rainbow"><img src="images/main_image/rainbow.png" alt=""/></div>
+                    <div id="cloud"><img src="images/main_image/cloud.png" alt=""/></div>
+                    <div id="characters"><img src="images/main_image/all_characters.png" alt=""/></div>
+                </div><!--end: #background-->
+        
+                <div id="top_text_position0" class="text_info"><p><span>상상</span>하는 모든것을 <span>현실</span>로 만드는</p></div>
+                <div id="top_text_position1" class="text_info bounce_text"><p><span>대</span><span>원</span><span>미</span><span>디</span><span>어</span></p></div>
+        
+                <div id="main_button">
+                    <div id="news"><a href="#"><button>대원뉴스 바로가기</button></a></div>
+                    <div id="shop"><a href="#"><button>대원샵 바로가기</button></a></div>
+                </div>
+            </section><!--end: #main_top-->
+
+            <section id="main_middle" class="sec">
+                <div id="bg2">
+                    <div id="bg_paper"><img src="images/main_middle/main_paper.png" alt=""/></div>
+                    <div id="character_yoshi"><img src="images/main_middle/yoshi.png" alt=""/></div>
+                    <div id="character_spunge"><img src="images/main_middle/spungbob.png" alt=""></div>
+
+                    <div id="main_middle_text">
+                        <p>다양한 IP를 통한<br/>지속적인 고객과의 소통으로<br/>최상의 경험을 제공합니다.</p>
+                    </div>
+                    
+                    <div id="business_text">
+                        <a href="#"><p>대원비즈니스<br/><span>보러가기</span></p></a>
+                    </div>
+
+                    <div id = "line"><img src="images/main_middle/line.png" alt=""/></div>
+                </div>
             </section>
-        </section><!--end: #main_top-->
-    </main>
+
+            <section id="main_1_CA" class="sec">
+
+            </section>
+        </main>
+        <div class="pager"></div>
+    </div>
 
     <!--외부 플러그인 호출-->
+    <!--스크롤 호출-->
+    <script src="js/ScrollGiveClass.js"></script>
+    <!--Swiper 호출-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!--플러그인 호출-->
     <script src="js/script.js"></script>

@@ -21,12 +21,16 @@ a {
 
 header {
   font-family: "Pretendard-Regular";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
   top: 0;
   right: 0;
   left: 0;
 }
-header #header_fix {
-  position: fixed;
+header .header_fix {
   width: 1200px;
 }
 header #logo {
@@ -70,6 +74,22 @@ header input:checked {
 header input:checked + label {
   color: #3B3B3B;
 }
+header.scrolled {
+  background: #fff;
+  color: #3B3B3B;
+}
+
+#wrap {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.sec {
+  width: 100%;
+  height: 100vh;
+}
 
 main {
   font-family: "Pretendard-Regular";
@@ -79,7 +99,7 @@ main #main_top {
   height: 100vh;
   overflow: hidden;
 }
-main #bg {
+main #main_top #bg1 {
   position: relative;
   background: url(../images/main_image/paper_texture.jpg) no-repeat center;
   width: 100%;
@@ -87,31 +107,31 @@ main #bg {
   background-size: cover;
   z-index: -999;
 }
-main #rainbow {
+main #main_top #rainbow {
   position: absolute;
   top: 70px;
   left: 200px;
 }
-main #rainbow img {
+main #main_top #rainbow img {
   width: 1464px;
   z-index: 1;
 }
-main #cloud {
+main #main_top #cloud {
   position: absolute;
   top: 118px;
   left: 1280px;
 }
-main #cloud img {
+main #main_top #cloud img {
   width: 320px;
   z-index: 2;
 }
-main #characters {
+main #main_top #characters {
   position: absolute;
   top: 132px;
   left: 620px;
   animation: fadein 0.8s ease-in-out;
 }
-main #characters img {
+main #main_top #characters img {
   width: 1000px;
   z-index: 3;
 }
@@ -123,30 +143,30 @@ main #characters img {
     opacity: 1;
   }
 }
-main #top_text_position0 {
+main #main_top #top_text_position0 {
   position: relative;
   top: -292px;
   left: 380px;
 }
-main #top_text_position0 span {
+main #main_top #top_text_position0 span {
   color: #266FDE;
 }
-main #top_text_position1 {
+main #main_top #top_text_position1 {
   position: relative;
   top: -206px;
   left: 380px;
 }
-main .text_info {
+main #main_top .text_info {
   z-index: 4;
   display: inline-block;
 }
-main .text_info p {
+main #main_top .text_info p {
   font-family: "TTLaundryGothicB";
   font-size: 64px;
   background-color: #fff;
   padding: 8px 12px;
 }
-main .bounce_text > p span {
+main #main_top .bounce_text > p span {
   display: inline-block;
   position: relative;
   top: 10px;
@@ -154,16 +174,16 @@ main .bounce_text > p span {
   animation: bounce 0.55s ease infinite alternate;
   text-shadow: 0 1px 0 #e6e6e6, 0 2px 0 #e6e6e6, 0 3px 0 #e6e6e6, 0 4px 0 #e6e6e6, 0 5px 0 #e6e6e6, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
 }
-main .bounce_text p span:nth-child(2) {
+main #main_top .bounce_text p span:nth-child(2) {
   animation-delay: 0.1s;
 }
-main .bounce_text p span:nth-child(3) {
+main #main_top .bounce_text p span:nth-child(3) {
   animation-delay: 0.2s;
 }
-main .bounce_text p span:nth-child(4) {
+main #main_top .bounce_text p span:nth-child(4) {
   animation-delay: 0.3s;
 }
-main .bounce_text p span:nth-child(5) {
+main #main_top .bounce_text p span:nth-child(5) {
   animation-delay: 0.4s;
 }
 @keyframes bounce {
@@ -172,10 +192,10 @@ main .bounce_text p span:nth-child(5) {
     text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 50px 25px rgba(0, 0, 0, 0.2);
   }
 }
-main #main_button {
+main #main_top #main_button {
   position: relative;
 }
-main button {
+main #main_top button {
   --font-size: 18px;
   --move-hover: -6px;
   --duration: .44s;
@@ -200,46 +220,46 @@ main button {
   display: flex;
   overflow: hidden;
 }
-main button div {
+main #main_top button div {
   display: flex;
   overflow: hidden;
   text-shadow: 0 var(--font-shadow) 0 #fff;
 }
-main button span {
+main #main_top button span {
   display: block;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transition: transform var(--duration) ease;
   transform: translateY(var(--m)) translateZ(0);
 }
-main button span:nth-child(1) {
+main #main_top button span:nth-child(1) {
   transition-delay: 0.05s;
 }
-main button span:nth-child(2) {
+main #main_top button span:nth-child(2) {
   transition-delay: 0.1s;
 }
-main button span:nth-child(3) {
+main #main_top button span:nth-child(3) {
   transition-delay: 0.15s;
 }
-main button span:nth-child(4) {
+main #main_top button span:nth-child(4) {
   transition-delay: 0.2s;
 }
-main button span:nth-child(5) {
+main #main_top button span:nth-child(5) {
   transition-delay: 0.25s;
 }
-main button span:nth-child(6) {
+main #main_top button span:nth-child(6) {
   transition-delay: 0.3s;
 }
-main button span:nth-child(7) {
+main #main_top button span:nth-child(7) {
   transition-delay: 0.35s;
 }
-main button span:nth-child(8) {
+main #main_top button span:nth-child(8) {
   transition-delay: 0.4s;
 }
-main button span:nth-child(9) {
+main #main_top button span:nth-child(9) {
   transition-delay: 0.45s;
 }
-main button:hover {
+main #main_top button:hover {
   cursor: pointer;
   border: 3px solid #DC000C;
   background-color: #DC000C;
@@ -247,21 +267,131 @@ main button:hover {
   --y: var(--move-hover);
   --shadow: var(--shadow-hover);
 }
-main button:hover span {
+main #main_top button:hover span {
   --m: calc(var(--font-size) * -1);
 }
-main button.reverse:hover span {
+main #main_top button.reverse:hover span {
   --m: calc(var(--font-size));
 }
-main #news {
+main #main_top #news {
   display: block;
   position: absolute;
   top: -262px;
   left: 378px;
 }
-main #shop {
+main #main_top #shop {
   display: block;
   position: absolute;
   top: -262px;
   left: 582px;
+}
+main #main_middle #bg2 {
+  background: #2E2E2E url(../images/main_image/sky.png) no-repeat center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  z-index: -999;
+  position: relative;
+}
+main #main_middle #bg2 #bg_paper {
+  position: absolute;
+  top: 200px;
+  left: 30%;
+  z-index: 1;
+}
+main #main_middle #bg2 #bg_paper img {
+  width: 820px;
+}
+main #main_middle #bg2 #character_yoshi {
+  position: absolute;
+  top: 200px;
+  left: 18%;
+  z-index: 2;
+  animation: float_ani1 1s infinite alternate;
+}
+main #main_middle #bg2 #character_yoshi img {
+  width: 284px;
+}
+main #main_middle #bg2 #character_spunge {
+  position: absolute;
+  top: 426px;
+  left: 70%;
+  z-index: 2;
+  animation: float_ani2 1s infinite alternate;
+}
+main #main_middle #bg2 #character_spunge img {
+  width: 284px;
+}
+@keyframes float_ani1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 34px);
+  }
+}
+@keyframes float_ani2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, -34px);
+  }
+}
+main #main_middle #bg2 #main_middle_text {
+  position: relative;
+  top: 408px;
+  left: 36%;
+  color: #3B3B3B;
+  font-size: 48px;
+  z-index: 3;
+  font-family: "PTAnboR";
+  font-weight: 200;
+}
+main #main_middle #bg2 #business_text {
+  position: relative;
+  top: 436px;
+  left: 58%;
+  color: #9E9E9E;
+  font-size: 36px;
+  z-index: 4;
+  font-family: "LeeSeoyun";
+  font-weight: 400;
+}
+main #main_middle #bg2 #business_text span {
+  color: #fff;
+}
+main #main_middle #bg2 #line {
+  display: inline-block;
+  position: absolute;
+  top: 576px;
+  left: 55%;
+  z-index: 3;
+}
+main #main_middle #bg2 #line img {
+  width: 260px;
+  transform: rotate(-25deg);
+}
+
+.pager {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+}
+
+.pager span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
+  opacity: 0.3;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.pager span.active {
+  opacity: 1;
 }
