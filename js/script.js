@@ -27,3 +27,59 @@ let main_swiper = new Swiper("#wrap",{
         slideThumbActiveClass: "active",
     },
 });
+
+
+
+// 메인영역2 이미지 스와이퍼 적용
+let main_img_swiper = new Swiper("#main_2",{
+    wrapperClass: 'change_img',
+    slideClass: 'slide_img',
+
+    slidesPerView : 1,
+
+    effect:'fade',
+    speed:800,
+    fadeEffect: { 
+        crossFade: true,
+    },
+
+    autoplay: {
+        delay: 2300,
+        disableOnInteraction: false,
+    },
+
+    observer: true,
+    observeParents: true,
+});
+
+var header = document.getElementsByTagName('header');
+
+main_swiper.on('slideChangeTransitionEnd', function () {
+    main_img_swiper.slideTo(0);
+    //header[0].classList.replace("view"+ this.activeIndex);
+});
+
+
+// 메인영역3 이미지 스와이퍼 적용
+let main3_img_swiper = new Swiper("#main_3",{
+    wrapperClass: 'change_img',
+    slideClass: 'slide_img',
+
+    slidesPerView: 1,
+    spaceBetween: 10,
+
+    effect:'fade',
+    speed:800,
+    fadeEffect: { 
+        crossFade: true,
+    },
+    
+
+    autoplay: {
+        delay: 2600,
+        disableOnInteraction: false,
+    },
+
+    observer: true,
+    observeParents: true,
+});

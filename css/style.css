@@ -105,7 +105,7 @@ main #main_top #bg1 {
   width: 100%;
   height: 100vh;
   background-size: cover;
-  z-index: -999;
+  z-index: 2;
 }
 main #main_top #rainbow {
   position: absolute;
@@ -194,6 +194,7 @@ main #main_top .bounce_text p span:nth-child(5) {
 }
 main #main_top #main_button {
   position: relative;
+  z-index: 5;
 }
 main #main_top button {
   --font-size: 18px;
@@ -291,7 +292,7 @@ main #main_middle #bg2 {
   width: 100%;
   height: 100vh;
   background-size: cover;
-  z-index: -999;
+  z-index: 2;
   position: relative;
 }
 main #main_middle #bg2 #bg_paper {
@@ -372,6 +373,116 @@ main #main_middle #bg2 #line {
 main #main_middle #bg2 #line img {
   width: 260px;
   transform: rotate(-25deg);
+}
+main .main_text h2 {
+  font-size: 72px;
+  color: #fff;
+  position: absolute;
+  top: 26%;
+  left: 15%;
+}
+main .main_text p {
+  font-size: 28px;
+  color: #fff;
+  line-height: 30px;
+  position: absolute;
+  top: 40%;
+  left: 15%;
+}
+main .main_text2 h2 {
+  font-size: 82px;
+  color: #fff;
+  position: absolute;
+  top: 26%;
+  right: 15%;
+}
+main .main_text2 p {
+  font-size: 32px;
+  color: #fff;
+  line-height: 30px;
+  position: absolute;
+  top: 40%;
+  right: 15%;
+  text-align: right;
+}
+main #main_1_CA {
+  background: url(../images/main/bg/1.jpg) no-repeat center;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+main #main_1_CA h2, main #main_1_CA p {
+  color: #3B3B3B;
+}
+main #main_1_CA #CA #main1_img {
+  position: absolute;
+  top: 32%;
+  left: 46%;
+}
+main #main_2_OA {
+  background: #2E2E2E;
+  position: relative;
+}
+main #main_2_OA #main2_img {
+  position: absolute;
+  top: 40%;
+  left: 18%;
+  z-index: 5;
+}
+main #main_2_OA .change_img {
+  position: absolute;
+  top: 42%;
+  left: 20%;
+}
+main #main_2_OA .change_img img {
+  width: 542px;
+  height: 360px;
+  z-index: 3;
+}
+main #main_2_OA .swiper-wrapper {
+  display: flex;
+}
+main #main_2_OA .noise {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-image: url("https://i.ibb.co/x3TCktM/645cbb8ec449398255b76326-noise.gif");
+  background-position: 0 0;
+  background-size: auto;
+  pointer-events: none;
+  opacity: 0.07;
+  transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  visibility: visible;
+}
+main #main_3_BL {
+  background: url(../images/main/bg/2.jpg) no-repeat center;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+main #main_3_BL h2, main #main_3_BL p {
+  color: #3B3B3B;
+  z-index: 5;
+}
+main #main_3_BL #change_main3_img {
+  position: absolute;
+  top: 38%;
+  left: 56%;
+  z-index: 3;
+}
+main #main_3_BL #change_main3_img img {
+  width: 540px;
+  height: auto;
+}
+main #main_3_BL .swiper-wrapper {
+  display: flex;
 }
 
 .pager {

@@ -53,7 +53,7 @@ main{
         #bg1{
             position: relative;
             background: url(../images/main_image/paper_texture.jpg) no-repeat center;
-            width: 100%; height: 100vh; background-size: cover; z-index: -999;
+            width: 100%; height: 100vh; background-size: cover; z-index: 2;
         }
 
         #rainbow{position: absolute; top: 70px; left: 200px;}
@@ -129,7 +129,7 @@ main{
         }
 
         // main 위에 위치한 버튼 배치
-        #main_button{position: relative;}
+        #main_button{position: relative; z-index: 5;}
         button{
             --font-size: 18px;
             --move-hover: -6px;
@@ -183,7 +183,7 @@ main{
     #main_middle{
         #bg2{
             background:#2E2E2E url(../images/main_image/sky.png) no-repeat center; background-attachment: fixed;
-            width: 100%; height: 100vh; background-size: cover; z-index: -999;
+            width: 100%; height: 100vh; background-size: cover; z-index: 2;
             position: relative;
 
             #bg_paper{
@@ -232,6 +232,93 @@ main{
             }
         }
     } // end: #main_middle
+
+    .main_text{
+        h2{
+            font-size: 72px; color: #fff;
+            position: absolute; top: 26%; left: 15%;
+        }
+        p{
+            font-size: 28px; color: #fff; line-height: 30px;
+            position: absolute; top: 40%; left: 15%;
+        }
+    } // end: .main_text
+
+    .main_text2{
+        h2{
+            font-size: 82px; color: #fff;
+            position: absolute; top: 26%; right: 15%;
+        }
+        p{
+            font-size: 32px; color: #fff; line-height: 30px;
+            position: absolute; top: 40%; right: 15%;
+            text-align: right;
+        }
+    } // end: .main_text2
+
+    #main_1_CA{
+        background: url(../images/main/bg/1.jpg) no-repeat center; width: 100%; height: 100vh; background-size: cover; 
+        position: relative; z-index: 2;
+
+        h2, p{color: #3B3B3B;}
+
+        #CA{
+            #main1_img{
+                position: absolute; top: 32%; left: 46%;
+            }
+        }
+    }// end: #main_1_CA
+
+    #main_2_OA{
+        background:#2E2E2E; position: relative;
+
+        #main2_img{
+            position: absolute; top: 40%; left: 18%;
+            z-index: 5;
+        }
+
+        .change_img{
+            position: absolute; top: 42%; left: 20%;
+            img{width: 542px; height: 360px; z-index: 3; }
+        }
+
+        .swiper-wrapper {
+            display: flex;
+        }
+
+        // 화면 글리치 효과
+        .noise{
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            background-image: url('https://i.ibb.co/x3TCktM/645cbb8ec449398255b76326-noise.gif');
+            background-position: 0 0;
+            background-size: auto;
+            pointer-events: none;
+            opacity: 0.07;
+            transition: opacity .2s cubic-bezier(.445, .05, .55, .95); 
+            visibility: visible;
+        }
+    }
+
+    #main_3_BL{
+        background: url(../images/main/bg/2.jpg) no-repeat center; width: 100%; height: 100vh; background-size: cover; 
+        position: relative; z-index: 2;
+
+        h2, p{color: #3B3B3B; z-index: 5;}
+
+        #change_main3_img{
+            position: absolute; top: 38%; left: 56%; z-index: 3;   
+            img{width: 540px; height: auto;}
+        }
+
+        .swiper-wrapper {
+            display: flex;
+        }
+    }
 }
 
 .pager{position: absolute; top: 50%; left: 30px; transform: translateY(-50%);}
