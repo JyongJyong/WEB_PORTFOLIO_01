@@ -30,13 +30,18 @@ header{
     // LANG → 언어변경
     // radio-button 클릭 시 색깔 변경
     #lang{float: right; margin: 44px 0 0 12px;}
-    label{color: #BCBCBC; cursor: pointer;}
+    label{color: rgba(48, 48, 48, 0.5); cursor: pointer;}
     #lang fieldset :nth-child(2){margin-right: 8px;}
     input:checked{border: none;}
     input:checked + label{color: #3B3B3B;}
 
-    &.scrolled{
-        background: #fff; color: #3B3B3B;
+    &.view1{
+        background: rgba(255, 255, 255, .7); color: #3B3B3B;
+        label{color: rgba(255, 255, 255, .7);}
+    }
+    &.view3{
+        background: rgba(255, 255, 255, .7); color: #fff;
+        label{color: rgba(255, 255, 255, .7);}
     }
 }
 
@@ -236,23 +241,33 @@ main{
     .main_text{
         h2{
             font-size: 72px; color: #fff;
-            position: absolute; top: 26%; left: 15%;
+            position: absolute; top: 26%; left: 19%;
         }
         p{
             font-size: 28px; color: #fff; line-height: 30px;
-            position: absolute; top: 40%; left: 15%;
+            position: absolute; top: 40%; left: 19%;
         }
+
     } // end: .main_text
 
     .main_text2{
         h2{
             font-size: 82px; color: #fff;
-            position: absolute; top: 26%; right: 15%;
+            position: absolute; top: 26%; right: 19%;
+            text-align: right;
         }
         p{
             font-size: 32px; color: #fff; line-height: 30px;
-            position: absolute; top: 40%; right: 15%;
+            position: absolute; top: 40%; right: 19%;
             text-align: right;
+        }
+
+        @keyframes squiggly-anim{
+            0% { filter: url('#squiggly-0') }
+            25% { filter: url('#squiggly-1') }
+            50% { filter: url('#squiggly-2') }
+            75% { filter: url('#squiggly-3') }
+            100% { filter: url('#squiggly-4') }
         }
     } // end: .main_text2
 
@@ -260,17 +275,22 @@ main{
         background: url(../images/main/bg/1.jpg) no-repeat center; width: 100%; height: 100vh; background-size: cover; 
         position: relative; z-index: 2;
 
-        h2, p{color: #3B3B3B;}
+        h2, p{color: #3B3B3B; z-index: 2;}
+        p{top: 48%;}
 
         #CA{
             #main1_img{
-                position: absolute; top: 32%; left: 46%;
+                position: absolute; top: 28%; left: 40%; z-index: 1;
             }
         }
     }// end: #main_1_CA
 
     #main_2_OA{
         background:#2E2E2E; position: relative;
+
+        h2{animation: text-shadow 2.4s ease-in-out infinite;}
+
+        p{animation: squiggly-anim 0.34s linear infinite;}
 
         #main2_img{
             position: absolute; top: 40%; left: 18%;
@@ -284,6 +304,63 @@ main{
 
         .swiper-wrapper {
             display: flex;
+        }
+
+        // 글씨가 치지직하는 효과
+        @keyframes text-shadow {
+            0% {  
+                transform: translateY(0);
+                text-shadow: 
+                    0 0 0 #0c2ffb, 
+                    0 0 0 #2cfcfd, 
+                    0 0 0 #fb203b, 
+                    0 0 0 #fefc4b;
+            }
+
+            20% {  
+                transform: translateY(-0.5em);
+                text-shadow: 
+                    0 0.125em 0 #0c2ffb, 
+                    0 0.25em 0 #2cfcfd, 
+                    0 -0.125em 0 #fb203b, 
+                    0 -0.25em 0 #fefc4b;
+            }
+
+            40% {  
+                transform: translateY(0.25em);
+                text-shadow: 
+                    0 -0.0625em 0 #0c2ffb, 
+                    0 -0.125em 0 #2cfcfd, 
+                    0 0.0625em 0 #fb203b, 
+                    0 0.125em 0 #fefc4b;
+            }
+            
+        60% {
+                transform: translateY(-0.125em);
+                text-shadow: 
+                    0 0.03125em 0 #0c2ffb, 
+                    0 0.0625em 0 #2cfcfd, 
+                    0 -0.03125em 0 #fb203b, 
+                    0 -0.0625em 0 #fefc4b;
+            }
+
+            80% {  
+                transform: translateY(0);
+                text-shadow: 
+                    0 0 0 #0c2ffb, 
+                    0 0 0 #2cfcfd, 
+                    0 0 0 #fb203b, 
+                    0 0 0 #fefc4b;
+            }
+        }
+
+        // 글씨 Wiggle Wiggle 거리는 효과
+        @keyframes squiggly-anim{
+            0% { filter: url('#squiggly-0') }
+            25% { filter: url('#squiggly-1') }
+            50% { filter: url('#squiggly-2') }
+            75% { filter: url('#squiggly-3') }
+            100% { filter: url('#squiggly-4') }
         }
 
         // 화면 글리치 효과
@@ -318,7 +395,114 @@ main{
         .swiper-wrapper {
             display: flex;
         }
-    }
+
+        .change_img{
+            display: flex;
+            position: absolute; top: 54%; left: 36%;
+            img{height: 280px;}
+        }
+    } // end: #main_3_BL
+
+    #main_4_EP{
+        background: url(../images/main/bg/3.jpg) no-repeat center; width: 100%; height: 100vh; background-size: cover; 
+        position: relative; z-index: 2;
+
+        h2, p{color: #3B3B3B; z-index: 5;}
+        p{top: 48%;}
+
+        #main4_img{
+            position: absolute; top: 24%; left: 18.5%; z-index: 3;
+            img{width: 540px; filter: drop-shadow(0 15px 8px rgba(0,0,0,0.16));}
+        }
+    } // end: #main_4_EP
+
+    #main_5_RB{
+        background: url(../images/main/bg/4.jpg) no-repeat center; width: 100%; height: 100vh; background-size: cover; 
+        position: relative; z-index: 2; 
+        h2, p{z-index: 5;}
+
+        #main_5{
+            position: relative;
+            width: 240px;
+            height: 320px;
+        }
+
+        #change_main5_img{
+            display: flex;
+            position: absolute; top: 84%; left: 502%; z-index: 3;
+            justify-content: center; align-items: center;
+            img{width: 360px; border-radius: 18px;}
+        }
+        
+        .slide_img{
+            flex-shrink: 0; justify-content: center; align-items: center; opacity: .7; img{transform: scale(1);}
+            &.swiper-slide-active{opacity: 1; img{transform: scale(1.08);  border: 6px solid #fff;}}
+        }
+    } // end: #main_5_RB
+
+    #main_6_VGP{
+        background: url(../images/main/bg/5.jpeg) no-repeat center; width: 100%; height: 100vh; background-size: cover; 
+        position: relative; z-index: 2; 
+
+        h2{top: 20%; right: 19%; z-index: 5;}
+        p{top: 34%; z-index: 5;}
+
+        #main_6{
+            p{
+                position: absolute; top: 50%; left: 28%;
+                img{height: 360px;}
+            }
+
+            .change_img{
+                display: flex;
+                position: absolute; top: 54%; left: 36%;
+                img{height: 280px;}
+            }
+        }
+    } // end: #main_6_VGP
+
+    #main_7_CPS{
+        background: url(../images/main/bg/6.jpg) no-repeat center; width: 100%; height: 100vh; background-size: cover; 
+        position: relative; z-index: 2; 
+
+        #main7_img1{
+            position: absolute; top: 38%; left: 57%;
+            //animation: float1 0.5s linear infinite alternate, float2 2s linear infinite alternate;;
+            img{width: 480px;}
+        }
+
+        @keyframes float1 {
+            0% {
+                margin-left: 5px;
+            }
+            100% {
+                margin-left: -5px;
+            }
+        }
+        @keyframes float2 {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-30px);
+            }
+        }
+
+        #main7_img2{
+            position: absolute; top: 62%; left: 46%; transform: rotate(-15deg);
+            animation: swing 2s ease infinite;
+            img{width: 280px;}
+        }
+
+        @keyframes swing {
+            0%, 100% {
+                transform: rotate(10deg);
+            }
+            50% {
+                transform: rotate(-10deg);
+            }
+        }
+    } // end: #main_7_CPS
 }
 
 .pager{position: absolute; top: 50%; left: 30px; transform: translateY(-50%);}

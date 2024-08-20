@@ -8,6 +8,11 @@ var sgc = new ScrollGiveClass("header", {
 
 /*풀페이지 만들기*/
 // 메인영역 스와이퍼 적용
+
+var header = document.getElementsByTagName("header")[0];
+var prevClass = null;
+var activeClass = null;
+
 let main_swiper = new Swiper("#wrap",{
     wrapperClass: 'container',
     slideClass: 'sec',
@@ -23,8 +28,18 @@ let main_swiper = new Swiper("#wrap",{
         clickable: true, // 클릭 시 슬라이드 이동
     },
     
-    thumbs:{
-        slideThumbActiveClass: "active",
+    // class 만들기
+    on:{
+        afterInit: function(){
+            activeClass = "view" + this.activeIndex;
+            header.classList.add(activeClass);
+            prevClass = activeClass;
+        },
+        slideChange:function(){ // slideChangeTransitionEnd:function()
+            activeClass = "view" + this.activeIndex;
+            header.classList.replace(prevClass, activeClass);
+            prevClass = activeClass;
+        }
     },
 });
 
@@ -39,12 +54,9 @@ let main_img_swiper = new Swiper("#main_2",{
 
     effect:'fade',
     speed:800,
-    fadeEffect: { 
-        crossFade: true,
-    },
 
     autoplay: {
-        delay: 2300,
+        delay: 2100,
         disableOnInteraction: false,
     },
 
@@ -52,7 +64,7 @@ let main_img_swiper = new Swiper("#main_2",{
     observeParents: true,
 });
 
-var header = document.getElementsByTagName('header');
+//var header = document.getElementsByTagName("header");
 
 main_swiper.on('slideChangeTransitionEnd', function () {
     main_img_swiper.slideTo(0);
@@ -82,4 +94,56 @@ let main3_img_swiper = new Swiper("#main_3",{
 
     observer: true,
     observeParents: true,
+});
+
+main_swiper.on('slideChangeTransitionEnd', function () {
+    main3_img_swiper.slideTo(0);
+    //header[0].classList.replace("view"+ this.activeIndex);
+});
+
+
+// 메인영역5 이미지 스와이퍼 적용
+let main5_img_swiper = new Swiper("#main_5",{
+    wrapperClass: 'change_img',
+    slideClass: 'slide_img',
+
+    autoplay: {
+        delay: 2200,
+        disableOnInteraction: false,
+    },
+
+    loop: true,
+
+    // 카드 효과
+    effect: "cards",
+    grabCursor: true,
+    centerdSlides: true,
+});
+
+main_swiper.on('slideChangeTransitionEnd', function () {
+    main5_img_swiper.slideTo(0);
+    //header[0].classList.replace("view"+ this.activeIndex);
+});
+
+// 메인영역 이미지 스와이퍼 적용
+let main6_img_swiper = new Swiper("#main_6",{
+    wrapperClass: 'change_img',
+    slideClass: 'slide_img',
+
+    effect:'fade',
+    speed:800,
+
+    loop: true,
+
+    autoplay: {
+        delay: 2600,
+        disableOnInteraction: false,
+    },
+
+    observer: true,
+    observeParents: true,
+});
+
+main_swiper.on('slideChangeTransitionEnd', function () {
+    main6_img_swiper.slideTo(0);
 });

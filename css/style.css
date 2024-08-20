@@ -62,7 +62,7 @@ header #lang {
   margin: 44px 0 0 12px;
 }
 header label {
-  color: #BCBCBC;
+  color: rgba(48, 48, 48, 0.5);
   cursor: pointer;
 }
 header #lang fieldset :nth-child(2) {
@@ -74,9 +74,19 @@ header input:checked {
 header input:checked + label {
   color: #3B3B3B;
 }
-header.scrolled {
-  background: #fff;
+header.view1 {
+  background: rgba(255, 255, 255, 0.7);
   color: #3B3B3B;
+}
+header.view1 label {
+  color: rgba(255, 255, 255, 0.7);
+}
+header.view3 {
+  background: rgba(255, 255, 255, 0.7);
+  color: #fff;
+}
+header.view3 label {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 #wrap {
@@ -379,7 +389,7 @@ main .main_text h2 {
   color: #fff;
   position: absolute;
   top: 26%;
-  left: 15%;
+  left: 19%;
 }
 main .main_text p {
   font-size: 28px;
@@ -387,14 +397,15 @@ main .main_text p {
   line-height: 30px;
   position: absolute;
   top: 40%;
-  left: 15%;
+  left: 19%;
 }
 main .main_text2 h2 {
   font-size: 82px;
   color: #fff;
   position: absolute;
   top: 26%;
-  right: 15%;
+  right: 19%;
+  text-align: right;
 }
 main .main_text2 p {
   font-size: 32px;
@@ -402,8 +413,25 @@ main .main_text2 p {
   line-height: 30px;
   position: absolute;
   top: 40%;
-  right: 15%;
+  right: 19%;
   text-align: right;
+}
+@keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  25% {
+    filter: url("#squiggly-1");
+  }
+  50% {
+    filter: url("#squiggly-2");
+  }
+  75% {
+    filter: url("#squiggly-3");
+  }
+  100% {
+    filter: url("#squiggly-4");
+  }
 }
 main #main_1_CA {
   background: url(../images/main/bg/1.jpg) no-repeat center;
@@ -415,15 +443,26 @@ main #main_1_CA {
 }
 main #main_1_CA h2, main #main_1_CA p {
   color: #3B3B3B;
+  z-index: 2;
+}
+main #main_1_CA p {
+  top: 48%;
 }
 main #main_1_CA #CA #main1_img {
   position: absolute;
-  top: 32%;
-  left: 46%;
+  top: 28%;
+  left: 40%;
+  z-index: 1;
 }
 main #main_2_OA {
   background: #2E2E2E;
   position: relative;
+}
+main #main_2_OA h2 {
+  animation: text-shadow 2.4s ease-in-out infinite;
+}
+main #main_2_OA p {
+  animation: squiggly-anim 0.34s linear infinite;
 }
 main #main_2_OA #main2_img {
   position: absolute;
@@ -443,6 +482,45 @@ main #main_2_OA .change_img img {
 }
 main #main_2_OA .swiper-wrapper {
   display: flex;
+}
+@keyframes text-shadow {
+  0% {
+    transform: translateY(0);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
+  }
+  20% {
+    transform: translateY(-0.5em);
+    text-shadow: 0 0.125em 0 #0c2ffb, 0 0.25em 0 #2cfcfd, 0 -0.125em 0 #fb203b, 0 -0.25em 0 #fefc4b;
+  }
+  40% {
+    transform: translateY(0.25em);
+    text-shadow: 0 -0.0625em 0 #0c2ffb, 0 -0.125em 0 #2cfcfd, 0 0.0625em 0 #fb203b, 0 0.125em 0 #fefc4b;
+  }
+  60% {
+    transform: translateY(-0.125em);
+    text-shadow: 0 0.03125em 0 #0c2ffb, 0 0.0625em 0 #2cfcfd, 0 -0.03125em 0 #fb203b, 0 -0.0625em 0 #fefc4b;
+  }
+  80% {
+    transform: translateY(0);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
+  }
+}
+@keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  25% {
+    filter: url("#squiggly-1");
+  }
+  50% {
+    filter: url("#squiggly-2");
+  }
+  75% {
+    filter: url("#squiggly-3");
+  }
+  100% {
+    filter: url("#squiggly-4");
+  }
 }
 main #main_2_OA .noise {
   position: fixed;
@@ -483,6 +561,169 @@ main #main_3_BL #change_main3_img img {
 }
 main #main_3_BL .swiper-wrapper {
   display: flex;
+}
+main #main_3_BL .change_img {
+  display: flex;
+  position: absolute;
+  top: 54%;
+  left: 36%;
+}
+main #main_3_BL .change_img img {
+  height: 280px;
+}
+main #main_4_EP {
+  background: url(../images/main/bg/3.jpg) no-repeat center;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+main #main_4_EP h2, main #main_4_EP p {
+  color: #3B3B3B;
+  z-index: 5;
+}
+main #main_4_EP p {
+  top: 48%;
+}
+main #main_4_EP #main4_img {
+  position: absolute;
+  top: 24%;
+  left: 18.5%;
+  z-index: 3;
+}
+main #main_4_EP #main4_img img {
+  width: 540px;
+  filter: drop-shadow(0 15px 8px rgba(0, 0, 0, 0.16));
+}
+main #main_5_RB {
+  background: url(../images/main/bg/4.jpg) no-repeat center;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+main #main_5_RB h2, main #main_5_RB p {
+  z-index: 5;
+}
+main #main_5_RB #main_5 {
+  position: relative;
+  width: 240px;
+  height: 320px;
+}
+main #main_5_RB #change_main5_img {
+  display: flex;
+  position: absolute;
+  top: 84%;
+  left: 502%;
+  z-index: 3;
+  justify-content: center;
+  align-items: center;
+}
+main #main_5_RB #change_main5_img img {
+  width: 360px;
+  border-radius: 18px;
+}
+main #main_5_RB .slide_img {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+}
+main #main_5_RB .slide_img img {
+  transform: scale(1);
+}
+main #main_5_RB .slide_img.swiper-slide-active {
+  opacity: 1;
+}
+main #main_5_RB .slide_img.swiper-slide-active img {
+  transform: scale(1.08);
+  border: 6px solid #fff;
+}
+main #main_6_VGP {
+  background: url(../images/main/bg/5.jpeg) no-repeat center;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+main #main_6_VGP h2 {
+  top: 20%;
+  right: 19%;
+  z-index: 5;
+}
+main #main_6_VGP p {
+  top: 34%;
+  z-index: 5;
+}
+main #main_6_VGP #main_6 p {
+  position: absolute;
+  top: 50%;
+  left: 28%;
+}
+main #main_6_VGP #main_6 p img {
+  height: 360px;
+}
+main #main_6_VGP #main_6 .change_img {
+  display: flex;
+  position: absolute;
+  top: 54%;
+  left: 36%;
+}
+main #main_6_VGP #main_6 .change_img img {
+  height: 280px;
+}
+main #main_7_CPS {
+  background: url(../images/main/bg/6.jpg) no-repeat center;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+main #main_7_CPS #main7_img1 {
+  position: absolute;
+  top: 38%;
+  left: 57%;
+}
+main #main_7_CPS #main7_img1 img {
+  width: 480px;
+}
+@keyframes float1 {
+  0% {
+    margin-left: 5px;
+  }
+  100% {
+    margin-left: -5px;
+  }
+}
+@keyframes float2 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}
+main #main_7_CPS #main7_img2 {
+  position: absolute;
+  top: 62%;
+  left: 46%;
+  transform: rotate(-15deg);
+  animation: swing 2s ease infinite;
+}
+main #main_7_CPS #main7_img2 img {
+  width: 280px;
+}
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
 }
 
 .pager {
